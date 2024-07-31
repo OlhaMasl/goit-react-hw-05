@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import s from "./HomePage.module.css";
 import { fetchMovies } from "../../services/api";
-import { Link } from "react-router-dom";
+
+import MovieList from "../../components/MovieList/MovieList";
 
 const HomePage = () => {
 
@@ -10,8 +11,8 @@ const HomePage = () => {
     const getpopularMovies = async () => {
       try {
           const res = await fetchMovies();
-          console.log(res);
-        setpopularMovies(res);
+          console.log(res.results);
+        setpopularMovies(res.results);
       } catch (error) {
           console.log(error);
       };
@@ -19,14 +20,9 @@ const HomePage = () => {
     getpopularMovies();
   }, []);
     return (
-         <div>
-            <ul className={s.popularMoviesList} >
-                {popularMovies.map((movie) => (
-                <li key={movie.id} >
-                        <Link to={movie.id.toString()}>{movie.title}</Link>
-                </li>
-            ))}
-            </ul>
+      <div className={s.container}>
+        <h2 className={s.title}>Trending today</h2>
+        <MovieList movies={popularMovies} />
         </div>
     );
 };

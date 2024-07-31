@@ -1,0 +1,18 @@
+.listwrapper {
+    margin-bottom: 24px;
+
+}
+
+.popularMoviesList {
+    display: flex;
+    flex-direction: column;
+    gap:  12px;
+}
+
+.listItem {
+color: #030241;
+font-size: 24px;
+font-weight: 400;
+line-height: 1.11;
+letter-spacing: 0.02em;
+}

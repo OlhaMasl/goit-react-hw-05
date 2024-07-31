@@ -1,0 +1,14 @@
+.container {
+    background-color: rgb(243, 227, 208);
+    padding: 24px;
+
+}
+
+.title {
+color: #b81286;
+font-size: 32px;
+font-weight: 700;
+line-height: 1.11;
+letter-spacing: 0.02em;
+margin-bottom: 24px;
+}
