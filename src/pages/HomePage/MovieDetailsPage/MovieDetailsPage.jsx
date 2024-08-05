@@ -11,7 +11,7 @@ const MovieDetailsPage = () => {
         const getOneMovie = async () => {
             try {
                 const response = await fetchMovieById(params.movieId);
-                console.log(response);
+                // console.log(response);
                 setOneMovie(response);
             } catch (error) {
                 console.log(error);

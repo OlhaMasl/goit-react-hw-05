@@ -3,10 +3,13 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import s from "./MoviesPage.module.css";
 import { fetchSearchMovie } from "../../services/api";
 import MovieList from "../../components/MovieList/MovieList";
+import { useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
-    const [searchValue, setSearchValue] = useState("");
+
     const [searchMovies, setSearchMovies] = useState(null);
+    const [searchParams, setSearchParams] = useSearchParams();
+
 
     const  handleSubmit = (e) => {
     e.preventDefault();
@@ -15,11 +18,13 @@ const MoviesPage = () => {
        alert("Enter your search text")
       return;
     };
-    setSearchValue(formInput.value.toLowerCase());
+        searchParams.set("query", formInput.value.toLowerCase());
+        setSearchParams(searchParams);
     e.target.reset();
     };
 
-    console.log(searchValue);
+    const searchValue = searchParams.get("query") ?? "";
+    // console.log(searchValue);
 
     useEffect(() => {
     const getSearchMovies = async () => {
@@ -32,10 +37,10 @@ const MoviesPage = () => {
       };
     };
     getSearchMovies();
-    }, []);
+    }, [searchValue]);
 
-    if (!searchMovies) { return <h2>Loading...</h2> };
-    console.log(searchMovies);
+    if (!searchMovies) return <h2>Loading...</h2>;
+    // console.log(searchMovies);
     
     return (
         <div className={s.movieSearchWrap }>
