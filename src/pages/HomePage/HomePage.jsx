@@ -11,7 +11,7 @@ const HomePage = () => {
     const getpopularMovies = async () => {
       try {
           const res = await fetchMovies();
-          // console.log(res.results);
+         
         setpopularMovies(res.results);
       } catch (error) {
           console.log(error);

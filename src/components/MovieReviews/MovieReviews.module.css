@@ -1,0 +1,18 @@
+.reviewWrapper{
+    padding: 24px;
+}
+
+.reviewItem{
+    padding: 8px;
+    border: 2px solid rgb(6, 33, 107);
+    background-color: rgb(198, 226, 248);
+    margin-bottom: 16px;
+}
+
+.reviewAuthor {
+    margin-bottom: 12px;
+}
+
+.reviewInfo{
+    margin-bottom: 12px;
+}

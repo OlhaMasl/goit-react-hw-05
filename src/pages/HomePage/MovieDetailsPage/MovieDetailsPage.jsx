@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 const MovieDetailsPage = () => {
     const params = useParams();
-    const [oneMovie, setOneMovie] = useState({});
+    const [oneMovie, setOneMovie] = useState(null);
     useEffect(() => {
         const getOneMovie = async () => {
             try {
