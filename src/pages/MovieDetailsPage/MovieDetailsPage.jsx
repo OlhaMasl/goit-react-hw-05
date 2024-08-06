@@ -1,12 +1,16 @@
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import s from "./MovieDetailsPage.module.css";
-import { useEffect, useState } from "react";
-import { fetchMovieById } from "../../../services/api";
+import { Suspense, useEffect, useRef, useState } from "react";
 import clsx from "clsx";
+import { fetchMovieById } from "../../services/api";
 
 const MovieDetailsPage = () => {
     const params = useParams();
     const [oneMovie, setOneMovie] = useState(null);
+
+    const location = useLocation();
+    const goBackRef = useRef(location?.state || "/movies");
+
     useEffect(() => {
         const getOneMovie = async () => {
             try {
@@ -34,7 +38,8 @@ const MovieDetailsPage = () => {
     };
 
     return (
-    <div>
+        <div>
+            <Link to={goBackRef.current} className={s.linkBack }>Go back</Link>
         <div className={s.movieWrapper}>
             <img src={`https://image.tmdb.org/t/p/w500${oneMovie.poster_path}`} alt="poster" className={s.posterImg } />
             <div className={s.infoWrapper}>
@@ -52,7 +57,9 @@ const MovieDetailsPage = () => {
                 <NavLink to="cast" className={buildLinkClass}>Cast</NavLink>
                 <NavLink to="reviews" className={buildLinkClass}>Reviews</NavLink>
             </div>
-            <Outlet />
+            <Suspense fallback={<h2 className="load">Loading...</h2>}>
+                <Outlet />
+            </Suspense>
      </div>
     );
 };

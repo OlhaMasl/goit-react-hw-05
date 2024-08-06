@@ -3,13 +3,12 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import s from "./MoviesPage.module.css";
 import { fetchSearchMovie } from "../../services/api";
 import MovieList from "../../components/MovieList/MovieList";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 const MoviesPage = () => {
 
     const [searchMovies, setSearchMovies] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
-
 
     const  handleSubmit = (e) => {
     e.preventDefault();

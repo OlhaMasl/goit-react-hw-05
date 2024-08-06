@@ -37,3 +37,8 @@ address {
 img {
     display: block;
 }
+
+.load {
+    padding: 36px;
+    margin: 0 auto;
+}

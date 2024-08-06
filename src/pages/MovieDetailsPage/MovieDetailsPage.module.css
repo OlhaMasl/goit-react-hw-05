@@ -1,3 +1,11 @@
+.linkBack {
+    margin-left: 24px;
+    padding: 8px;
+    height: 32px;
+    border: 2px solid rgb(51, 112, 245);
+    background-color: #a3c1e4;
+}
+
 .movieWrapper{
     padding: 24px;
     display: flex;

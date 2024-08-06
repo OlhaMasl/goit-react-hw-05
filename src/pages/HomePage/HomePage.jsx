@@ -3,10 +3,13 @@ import s from "./HomePage.module.css";
 import { fetchMovies } from "../../services/api";
 
 import MovieList from "../../components/MovieList/MovieList";
+import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
 
-    const [popularMovies, setpopularMovies] = useState([]);
+  const [popularMovies, setpopularMovies] = useState([]);
+  
+
      useEffect(() => {
     const getpopularMovies = async () => {
       try {
