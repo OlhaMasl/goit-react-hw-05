@@ -10,7 +10,7 @@ const location = useLocation();
             <ol className={s.popularMoviesList} >
                 {movies.map((movie) => (
                 <li key={movie.id} className={s.listItem}>
-                        <Link to={movie.id.toString()} state={location}>{movie.title}</Link>
+                        <Link to={`/movies/${movie.id.toString()}`} state={location}>{movie.title}</Link>
                 </li>
             ))}
             </ol>
